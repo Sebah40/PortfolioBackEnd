@@ -1,9 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+  Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ 
 package com.portfolio.Sebastian.Controller;
-import Dto.dtoEducacion;
+import com.portfolio.Sebastian.Dto.dtoEducacion;
 import com.portfolio.Sebastian.Entity.Educacion;
 import com.portfolio.Sebastian.Service.ImpEducacionService;
 import io.micrometer.common.util.StringUtils;
@@ -23,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Sebastián
  */
+
+/**
 @RestController
 @RequestMapping("/educacion")
 @CrossOrigin(origins = "http://192.168.1.13:4200")
@@ -57,3 +58,5 @@ public class EducacionController {
         return new ResponseEntity(new Mensaje("Educación creada."), HttpStatus.OK);
     }
 }
+
+*/
