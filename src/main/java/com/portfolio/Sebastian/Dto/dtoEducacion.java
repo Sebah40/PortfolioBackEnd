@@ -1,7 +1,7 @@
 package com.portfolio.Sebastian.Dto;
 
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  *

@@ -1,13 +1,13 @@
 package com.portfolio.Sebastian.Security.Entity;
 
 import com.portfolio.Sebastian.Security.Enums.RolNombre;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 
 /**
  *
@@ -22,7 +22,6 @@ public class Rol {
     @Enumerated(EnumType.STRING)
     private RolNombre rolNombre;
     
-    //Constructor
     public Rol() {
     }
 
@@ -30,8 +29,6 @@ public class Rol {
         this.rolNombre = rolNombre;
     }
     
-    //Getter y Setter
-
     public int getId() {
         return id;
     }
