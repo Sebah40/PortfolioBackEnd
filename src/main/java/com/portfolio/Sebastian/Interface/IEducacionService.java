@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- 
 package com.portfolio.Sebastian.Interface;
 
 
@@ -10,7 +6,7 @@ import java.util.List;
 /**
  *
  * @author Sebastián
- 
+ */
 public interface IEducacionService {
     
         public List<Educacion> list();
@@ -22,4 +18,3 @@ public interface IEducacionService {
     public Educacion findEducacion(Long id);
     
 }
-*/

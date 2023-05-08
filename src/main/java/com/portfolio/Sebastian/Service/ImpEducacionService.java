@@ -1,4 +1,4 @@
-/*
+
 package com.portfolio.Sebastian.Service;
 
 import com.portfolio.Sebastian.Entity.Educacion;
@@ -42,4 +42,3 @@ public class ImpEducacionService {
         return ieducacionRepository.existsByNombreE(nombreE);
     }
 }
-*/
