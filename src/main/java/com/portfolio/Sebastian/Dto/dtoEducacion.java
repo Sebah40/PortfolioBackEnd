@@ -9,13 +9,13 @@ import jakarta.validation.constraints.NotBlank;
  */
 public class dtoEducacion {
     @NotBlank
-    private String nombreE;
+    private String nombre;
     @NotBlank
-    private String descripcionE;
+    private String descripcion;
     @NotBlank
-    private String imgE;
+    private String img;
     @NotBlank
-    private String anioE;
+    private String anio;
     @NotBlank
     private String habilidades;
 
@@ -23,46 +23,46 @@ public class dtoEducacion {
     }
 
     public dtoEducacion(String nombreE, String descripcionE, String imgE, String anioE, String habilidades) {
-        this.nombreE = nombreE;
-        this.descripcionE = descripcionE;
-        this.imgE = imgE;
-        this.anioE = anioE;
+        this.nombre = nombreE;
+        this.descripcion = descripcionE;
+        this.img = imgE;
+        this.anio = anioE;
         this.habilidades = habilidades;
     }
 
-    public String getNombreE() {
-        return nombreE;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreE(String nombreE) {
-        this.nombreE = nombreE;
+    public void setNombre(String nombreE) {
+        this.nombre = nombreE;
     }
 
-    public String getDescripcionE() {
-        return descripcionE;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripcionE(String descripcionE) {
-        this.descripcionE = descripcionE;
+    public void setDescripcion(String descripcionE) {
+        this.descripcion = descripcionE;
     }
 
-    public String getImgE() {
-        return imgE;
+    public String getImg() {
+        return img;
     }
 
     public void setImgE(String imgE) {
-        this.imgE = imgE;
+        this.img = imgE;
     }
 
-    public String getAnioE() {
-        return anioE;
+    public String getAnio() {
+        return anio;
     }
 
     public void setAnioE(String anioE) {
-        this.anioE = anioE;
+        this.anio = anioE;
     }
 
-    public String getHabilidadesE() {
+    public String getHabilidades() {
         return habilidades;
     }
 

@@ -15,26 +15,29 @@ public class Educacion {
     
     @NotNull
     @Size(min = 1, max = 50, message = "No cumple con la longitud")
-    private String nombreE;
+    private String nombre;
     @NotNull
     @Size(min = 1, max = 50, message = "No cumple con la longitud")
-    private String descripcionE;
+    private String descripcion;
 
-    @Size(min = 1, max = 50, message = "No cumple con la longitud")
-    private String imgE;
+    @Size(min = 1, max = 150, message = "No cumple con la longitud")
+    private String img;
     
     @Size(min = 1, max = 50, message = "No cumple con la longitud")
-    private String anioE;
+    private String anio;
     
     @Size(min = 1, max = 100, message = "No cumple con la longitud")
-    private String habilidadesE;
+    private String habilidades;
 
+    public Educacion() {
+    }
+    
     public Educacion(String nombreE, String descripcionE, String imgE, String anioE, String habilidadesE) {
-        this.nombreE = nombreE;
-        this.descripcionE = descripcionE;
-        this.imgE = imgE;
-        this.anioE = anioE;
-        this.habilidadesE = habilidadesE;
+        this.nombre = nombreE;
+        this.descripcion = descripcionE;
+        this.img = imgE;
+        this.anio = anioE;
+        this.habilidades = habilidadesE;
     }
 
     public long getId() {
@@ -46,42 +49,42 @@ public class Educacion {
     }
 
     public String getNombre() {
-        return nombreE;
+        return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombreE = nombre;
+    public void setNombre(String nombreE) {
+        this.nombre = nombreE;
     }
 
     public String getDescripcion() {
-        return descripcionE;
+        return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcionE = descripcion;
+    public void setDescripcion(String descripcionE) {
+        this.descripcion = descripcionE;
     }
 
     public String getImg() {
-        return imgE;
+        return img;
     }
 
-    public void setImg(String img) {
-        this.imgE = img;
+    public void setImg(String imgE) {
+        this.img = imgE;
     }
     
     public String getAnio() {
-        return anioE;
+        return anio;
     }
 
-    public void setAnio(String anio) {
-        this.anioE = anio;
+    public void setAnio(String anioE) {
+        this.anio = anioE;
     }
     
     public String getHabilidades() {
-        return habilidadesE;
+        return habilidades;
     }
 
-    public void setHabilidades(String habilidades) {
-        this.habilidadesE = habilidades;
+    public void setHabilidades(String habilidadesE) {
+        this.habilidades = habilidadesE;
     }
 }

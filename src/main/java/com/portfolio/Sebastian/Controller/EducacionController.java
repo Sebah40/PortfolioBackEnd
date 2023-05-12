@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = "http://192.168.1.13:4200")
+@CrossOrigin(origins = {"http://localhost:4200","http://192.168.1.13:4200"})
 public class EducacionController {
     @Autowired ImpEducacionService impeducacionService;
     
@@ -46,22 +46,24 @@ public class EducacionController {
     
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
+        System.out.println("FUNCIONANDO");
         if(!impeducacionService.existsById(id)){
             return new ResponseEntity(new Mensaje("ID does not exist"), HttpStatus.NOT_FOUND);
         }
+        impeducacionService.delete(id);
         return new ResponseEntity(new Mensaje("Deleted"), HttpStatus.OK);
     }
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeducacion){
-        if(StringUtils.isBlank(dtoeducacion.getNombreE())){
+        if(StringUtils.isBlank(dtoeducacion.getNombre())){
             return new ResponseEntity(new Mensaje("Field name is mandatory"), HttpStatus.BAD_REQUEST);
         }
-        if(impeducacionService.existsByNombreE(dtoeducacion.getNombreE())){
+        if(impeducacionService.existsByNombre(dtoeducacion.getNombre())){
             return new ResponseEntity(new Mensaje("Name already exists."), HttpStatus.BAD_REQUEST);
         }
         
-        Educacion educacion = new Educacion(dtoeducacion.getNombreE(),dtoeducacion.getDescripcionE(), dtoeducacion.getImgE(), dtoeducacion.getAnioE(), dtoeducacion.getHabilidadesE());
+        Educacion educacion = new Educacion(dtoeducacion.getNombre(),dtoeducacion.getDescripcion(), dtoeducacion.getImg(), dtoeducacion.getAnio(), dtoeducacion.getHabilidades());
         impeducacionService.save(educacion);
         return new ResponseEntity(new Mensaje("Created."), HttpStatus.OK);
     }
@@ -71,15 +73,29 @@ public class EducacionController {
         if(!impeducacionService.existsById(id)){
             return new ResponseEntity(new Mensaje("ID does not exist"), HttpStatus.NOT_FOUND);
         }
-        if(impeducacionService.existsByNombreE(dtoeducacion.getNombreE()) && impeducacionService.getByNombreE(dtoeducacion.getNombreE()).get().getId() != id){
+        if(impeducacionService.existsByNombre(dtoeducacion.getNombre()) && impeducacionService.getByNombre(dtoeducacion.getNombre()).get().getId() != id){
             return new ResponseEntity(new Mensaje("Name already exists"), HttpStatus.BAD_REQUEST);
         }
-        if(StringUtils.isBlank(dtoeducacion.getNombreE())){
+        if(StringUtils.isBlank(dtoeducacion.getNombre())){
             return new ResponseEntity(new Mensaje("Field name is mandatory"), HttpStatus.BAD_REQUEST);
         }
+        
+        if(StringUtils.isBlank(dtoeducacion.getImg())){
+            return new ResponseEntity(new Mensaje("Field image is mandatory"), HttpStatus.BAD_REQUEST);
+        }
+        
+        if(StringUtils.isBlank(dtoeducacion.getHabilidades())){
+            return new ResponseEntity(new Mensaje("Field abilities is mandatory"), HttpStatus.BAD_REQUEST);
+        }
+        if(StringUtils.isBlank(dtoeducacion.getAnio())){
+            return new ResponseEntity(new Mensaje("Field year is mandatory"), HttpStatus.BAD_REQUEST);
+        }
         Educacion educacion = impeducacionService.getOne(id).get();
-        educacion.setNombre(dtoeducacion.getNombreE());
-        educacion.setDescripcion(dtoeducacion.getDescripcionE());
+        educacion.setNombre(dtoeducacion.getNombre());
+        educacion.setDescripcion(dtoeducacion.getDescripcion());
+        educacion.setImg(dtoeducacion.getImg());
+        educacion.setHabilidades(dtoeducacion.getHabilidades());
+        educacion.setAnio(dtoeducacion.getAnio());
         impeducacionService.save(educacion);
         return new ResponseEntity(new Mensaje("Update successful"), HttpStatus.OK);
     }

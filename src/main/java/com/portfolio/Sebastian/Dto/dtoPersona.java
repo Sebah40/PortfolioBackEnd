@@ -61,6 +61,4 @@ public class dtoPersona {
     public void setImg(String img) {
         this.img = img;
     }
-    
-    
 }

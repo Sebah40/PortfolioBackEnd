@@ -20,8 +20,8 @@ public class ImpEducacionService {
         return ieducacionRepository.findById(id);
     }
     
-    public Optional<Educacion> getByNombreE(String nombreE){
-        return ieducacionRepository.findByNombreE(nombreE);
+    public Optional<Educacion> getByNombre(String nombreE){
+        return ieducacionRepository.findByNombre(nombreE);
     }
     
     
@@ -37,7 +37,7 @@ public class ImpEducacionService {
         return ieducacionRepository.existsById(id);
     }
 
-    public boolean existsByNombreE(String nombreE) {
-        return ieducacionRepository.existsByNombreE(nombreE);
+    public boolean existsByNombre(String nombreE) {
+        return ieducacionRepository.existsByNombre(nombreE);
     }
 }

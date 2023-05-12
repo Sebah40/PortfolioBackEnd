@@ -38,7 +38,7 @@ public class Experiencia {
         this.id = id;
     }
 
-    public String getNombreE() {
+    public String getNombreE() { 
         return nombreE;
     }
 
