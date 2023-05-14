@@ -40,7 +40,7 @@ public class PersonaController {
     @GetMapping("/detail/{id}")
     public ResponseEntity<Persona> getById(@PathVariable("id")int id){
         if(!personaService.existsById(id)){
-            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("ID does not exist"), HttpStatus.BAD_REQUEST);
         }
         
         Persona persona = personaService.getOne(id).get();
@@ -50,28 +50,28 @@ public class PersonaController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         if(!personaService.existsById(id)){
-            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity(new Mensaje("ID does not exist"), HttpStatus.NOT_FOUND);
         }
         personaService.delete(id);
-        return new ResponseEntity(new Mensaje("Persona eliminada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Deleted"), HttpStatus.OK);
     }
     
     @PostMapping("/crear")
     public String createPersona(@RequestBody Persona persona){
         personaService.save(persona);
-        return "La persona se guardó correctamente";
+        return "Saved";
     }
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoPersona dtopersona){
         if(!personaService.existsById(id)){
-            return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
+            return new ResponseEntity(new Mensaje("ID does not exist"), HttpStatus.NOT_FOUND);
         }
         if(personaService.existsByNombre(dtopersona.getNombre()) && personaService.getByNombre(dtopersona.getNombre()).get().getId() != id){
-            return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Name already exists"), HttpStatus.BAD_REQUEST);
         }
         if(StringUtils.isBlank(dtopersona.getNombre())){
-            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Name is mandatory"), HttpStatus.BAD_REQUEST);
         }
         
         Persona persona = personaService.getOne(id).get();
@@ -83,7 +83,7 @@ public class PersonaController {
         
         personaService.save(persona);
         
-        return new ResponseEntity(new Mensaje("Persona actualizada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Updated"), HttpStatus.OK);
     }
    
 }
