@@ -2,7 +2,7 @@ package com.portfolio.Sebastian.Service;
 
 import com.portfolio.Sebastian.Entity.Proyecto;
 import com.portfolio.Sebastian.Repository.IProyectoRepository;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
