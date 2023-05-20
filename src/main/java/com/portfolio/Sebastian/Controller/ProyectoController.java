@@ -35,7 +35,6 @@ public class ProyectoController {
         List<Proyecto> list = impproyectoService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Proyecto> getById(@PathVariable("id") int id){
         if(!impproyectoService.existsById(id)){
@@ -44,7 +43,7 @@ public class ProyectoController {
         Proyecto proyecto = impproyectoService.getOne(id).get();
         return new ResponseEntity(proyecto, HttpStatus.OK);
     }
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         System.out.println("FUNCIONANDO");
@@ -70,7 +69,7 @@ public class ProyectoController {
         return new ResponseEntity(new Mensaje("Created."), HttpStatus.OK);
     }
     
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoProyecto dtoproyecto){
         if(!impproyectoService.existsById(id)){

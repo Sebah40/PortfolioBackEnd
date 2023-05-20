@@ -35,7 +35,6 @@ public class EducacionController {
         List<Educacion> list = impeducacionService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") int id){
         if(!impeducacionService.existsById(id)){
@@ -44,7 +43,7 @@ public class EducacionController {
         Educacion educacion = impeducacionService.getOne(id).get();
         return new ResponseEntity(educacion, HttpStatus.OK);
     }
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         System.out.println("FUNCIONANDO");
@@ -70,7 +69,7 @@ public class EducacionController {
         return new ResponseEntity(new Mensaje("Created."), HttpStatus.OK);
     }
     
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoeducacion){
         if(!impeducacionService.existsById(id)){
