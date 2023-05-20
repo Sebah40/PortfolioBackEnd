@@ -46,7 +46,6 @@ public class EducacionController {
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
-        System.out.println("FUNCIONANDO");
         if(!impeducacionService.existsById(id)){
             return new ResponseEntity(new Mensaje("ID does not exist"), HttpStatus.NOT_FOUND);
         }
