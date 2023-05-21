@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SebastianApplication {
 
 	public static void main(String[] args) {
+            System.out.println("UPDATE");
 		SpringApplication.run(SebastianApplication.class, args);
 	}
 
