@@ -23,6 +23,9 @@ public class Proyecto {
     @Size(min = 1, max = 150, message = "No cumple con la longitud")
     private String img;
     
+    @Size(min = 1, max = 150, message = "No cumple con la longitud")
+    private String url;
+    
     @Size(min = 1, max = 50, message = "No cumple con la longitud")
     private String anio;
     
@@ -32,12 +35,21 @@ public class Proyecto {
     public Proyecto() {
     }
     
-    public Proyecto(String nombreE, String descripcionE, String imgE, String anioE, String habilidadesE) {
+    public Proyecto(String nombreE, String descripcionE, String imgE, String anioE, String habilidadesE, String url) {
         this.nombre = nombreE;
         this.descripcion = descripcionE;
         this.img = imgE;
         this.anio = anioE;
         this.habilidades = habilidadesE;
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public int getId() {

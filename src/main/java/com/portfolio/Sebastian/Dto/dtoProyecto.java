@@ -18,16 +18,19 @@ public class dtoProyecto {
     private String anio;
     @NotBlank
     private String habilidades;
+    
+    private String url;
 
     public dtoProyecto() {
     }
 
-    public dtoProyecto(String nombreE, String descripcionE, String imgE, String anioE, String habilidades) {
+    public dtoProyecto(String nombreE, String descripcionE, String imgE, String anioE, String habilidades, String url) {
         this.nombre = nombreE;
         this.descripcion = descripcionE;
         this.img = imgE;
         this.anio = anioE;
         this.habilidades = habilidades;
+        this.url = url;
     }
 
     public String getNombre() {
@@ -69,6 +72,12 @@ public class dtoProyecto {
     public void setHabilidades(String habilidades) {
         this.habilidades = habilidades;
     }
+    public String getUrl(){
+        return url;
+    }
     
+    public void setUrl(String url){
+        this.url = url;
+    }
     
 }

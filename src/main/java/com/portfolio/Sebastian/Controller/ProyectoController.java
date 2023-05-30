@@ -63,7 +63,7 @@ public class ProyectoController {
             return new ResponseEntity(new Mensaje("Name already exists."), HttpStatus.BAD_REQUEST);
         }
         
-        Proyecto proyecto = new Proyecto(dtoproyecto.getNombre(),dtoproyecto.getDescripcion(), dtoproyecto.getImg(), dtoproyecto.getAnio(), dtoproyecto.getHabilidades());
+        Proyecto proyecto = new Proyecto(dtoproyecto.getNombre(),dtoproyecto.getDescripcion(), dtoproyecto.getImg(), dtoproyecto.getAnio(), dtoproyecto.getHabilidades(), dtoproyecto.getUrl());
         impproyectoService.save(proyecto);
         return new ResponseEntity(new Mensaje("Created."), HttpStatus.OK);
     }
@@ -97,6 +97,7 @@ public class ProyectoController {
         proyecto.setImg(dtoproyecto.getImg());
         proyecto.setHabilidades(dtoproyecto.getHabilidades());
         proyecto.setAnio(dtoproyecto.getAnio());
+        proyecto.setUrl(dtoproyecto.getUrl());
         impproyectoService.save(proyecto);
         return new ResponseEntity(new Mensaje("Update successful"), HttpStatus.OK);
     }
